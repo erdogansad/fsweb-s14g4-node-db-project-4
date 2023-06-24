@@ -13,7 +13,7 @@ exports.up = function (knex) {
     })
     .createTable("malzemeler", (tbl) => {
       tbl.increments("malzeme_id");
-      tbl.string("malzeme_adi");
+      tbl.string("malzeme_adi").unique();
     })
     .createTable("icindekiler", (tbl) => {
       tbl.increments("icindekiler_id");
@@ -24,5 +24,8 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists("tarifler").dropTableIfExists("adimlar").dropTableIfExists("malzemeler").dropTableIfExists("icindekiler");
+  knex.schema.dropTableIfExists("tarifler");
+  knex.schema.dropTableIfExists("adimlar");
+  knex.schema.dropTableIfExists("malzemeler");
+  return knex.schema.dropTableIfExists("icindekiler");
 };

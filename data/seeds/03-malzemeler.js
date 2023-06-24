@@ -1,4 +1,5 @@
 const malzemeler = [
+  { malzeme_adi: "zeytinyağı" },
   { malzeme_adi: "su" },
   { malzeme_adi: "mantar" },
   { malzeme_adi: "tereyağı" },
